@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Azure Haven — Luxury Hotel</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#06283d;
+  --deep:#031923;
+  --green:#0f766e;
+  --mint:#a7f3d0;
+  --orange:#f97316;
+  --gold:#d6b36a;
+  --cream:#f5f0e6;
+  --beige:#e9dfcf;
+  --white:#fff;
+  --muted:#718096;
+  --dark:#101820;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:"DM Sans",sans-serif;
+  color:var(--dark);
+  background:#fff;
+  overflow-x:hidden;
+}
+
+a{text-decoration:none;color:inherit}
+button,input,select{font:inherit}
+button{cursor:pointer}
+
+/* ---------- NAV ---------- */
+
+.nav{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:50;
+  padding:25px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#fff;
+}
+
+.logo{
+  font-family:"Playfair Display",serif;
+  font-size:29px;
+  font-weight:700;
+  letter-spacing:.3px;
+}
+
+.logo span{color:var(--gold)}
+
+.nav-menu{
+  display:flex;
+  align-items:center;
+  gap:29px;
+}
+
+.nav-menu a{
+  font-size:13px;
+  font-weight:600;
+  color:#f8fafc;
+  transition:.25s;
+}
+
+.nav-menu a:hover{color:var(--gold)}
+
+.nav-cta{
+  background:var(--orange)!important;
+  padding:12px 20px;
+  border-radius:30px;
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+  min-height:850px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:150px 6% 170px;
+  color:#fff;
+
+  background:
+    linear-gradient(90deg,
+      rgba(2,17,26,.90) 0%,
+      rgba(2,17,26,.62) 45%,
+      rgba(2,17,26,.15) 100%),
+    url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2200&q=90")
+    center/cover;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:180px;
+  background:linear-gradient(transparent,#fff);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+}
+
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:11px;
+  font-weight:700;
+  color:var(--mint);
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(55px,8vw,94px);
+  line-height:.98;
+  font-weight:600;
+  letter-spacing:-2px;
+  margin-bottom:26px;
+}
+
+.hero h1 span{
+  color:#e8d19b;
+}
+
+.hero p{
+  max-width:610px;
+  font-size:18px;
+  line-height:1.8;
+  color:#e2e8f0;
+  margin-bottom:34px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:0;
+  padding:15px 24px;
+  border-radius:8px;
+  font-weight:700;
+  transition:.25s;
+}
+
+.btn-orange{
+  background:var(--orange);
+  color:#fff;
+  box-shadow:0 12px 30px rgba(249,115,22,.28);
+}
+
+.btn-orange:hover{
+  transform:translateY(-3px);
+  background:#ea580c;
+}
+
+.btn-white{
+  background:rgba(255,255,255,.94);
+  color:#111827;
+}
+
+.btn-white:hover{transform:translateY(-3px)}
+
+.hero-rating{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-top:38px;
+  font-size:13px;
+  color:#cbd5e1;
+}
+
+.stars{color:#f6c453;letter-spacing:3px}
+
+/* ---------- BOOKING BAR ---------- */
+
+.booking-wrap{
+  position:relative;
+  z-index:20;
+  margin:-78px 6% 0;
+}
+
+.booking{
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(18px);
+  border-radius:17px;
+  padding:20px;
+  box-shadow:0 25px 70px rgba(15,23,42,.18);
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr auto;
+  gap:11px;
+  border:1px solid rgba(255,255,255,.8);
+}
+
+.book-field{
+  border:1px solid #e2e8f0;
+  border-radius:10px;
+  padding:10px 14px;
+  background:#fff;
+}
+
+.book-field label{
+  display:block;
+  font-size:10px;
+  text-transform:uppercase;
+  color:#94a3b8;
+  font-weight:800;
+  letter-spacing:.8px;
+}
+
+.book-field input,
+.book-field select{
+  border:0;
+  outline:0;
+  width:100%;
+  background:transparent;
+  margin-top:4px;
+  color:#172033;
+}
+
+/* ---------- COMMON ---------- */
+
+section{padding:115px 6%}
+
+.container{
+  max-width:1250px;
+  margin:auto;
+}
+
+.section-top{
+  max-width:680px;
+  margin-bottom:48px;
+}
+
+.section-top .eyebrow{
+  color:var(--green);
+}
+
+.section-top h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(38px,5vw,58px);
+  line-height:1.05;
+  margin-bottom:16px;
+}
+
+.section-top p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* ---------- INTRO ---------- */
+
+.intro{
+  background:var(--cream);
+  padding-top:125px;
+}
+
+.intro-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:75px;
+  align-items:center;
+}
+
+.image-stack{
+  position:relative;
+  padding-right:45px;
+  padding-bottom:45px;
+}
+
+.main-img{
+  width:100%;
+  height:560px;
+  object-fit:cover;
+  border-radius:18px;
+}
+
+.small-img{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:210px;
+  height:220px;
+  object-fit:cover;
+  border:10px solid var(--cream);
+  border-radius:17px;
+}
+
+.intro-copy .eyebrow{color:var(--green)}
+
+.intro-copy h2{
+  font-family:"Playfair Display",serif;
+  font-size:52px;
+  line-height:1.05;
+  margin:10px 0 20px;
+}
+
+.intro-copy>p{
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.intro-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin:30px 0;
+}
+
+.intro-item{
+  background:#fff;
+  padding:18px;
+  border-radius:12px;
+}
+
+.intro-item b{
+  display:block;
+  margin-bottom:4px;
+}
+
+.intro-item span{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ---------- ROOMS ---------- */
+
+.rooms{background:#fff}
+
+.room-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.room-card{
+  border-radius:17px;
+  overflow:hidden;
+  border:1px solid #e8edf2;
+  background:#fff;
+  transition:.35s;
+}
+
+.room-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 22px 55px rgba(15,23,42,.12);
+}
+
+.room-photo{
+  height:285px;
+  overflow:hidden;
+  position:relative;
+}
+
+.room-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.6s;
+}
+
+.room-card:hover .room-photo img{
+  transform:scale(1.06);
+}
+
+.room-label{
+  position:absolute;
+  top:16px;
+  left:16px;
+  background:rgba(3,25,35,.82);
+  color:white;
+  padding:7px 12px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.room-body{padding:25px}
+
+.room-body h3{
+  font-family:"Playfair Display",serif;
+  font-size:27px;
+}
+
+.room-meta{
+  color:var(--muted);
+  font-size:13px;
+  margin:6px 0 14px;
+}
+
+.room-body p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.room-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.price strong{font-size:21px}
+.price small{color:var(--muted)}
+
+/* ---------- EXPERIENCE ---------- */
+
+.experience{
+  background:var(--deep);
+  color:#fff;
+}
+
+.experience .section-top p{color:#94a3b8}
+.experience .eyebrow{color:var(--mint)}
+
+.experience-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.experience-card{
+  min-height:235px;
+  padding:27px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.055);
+  border-radius:16px;
+  transition:.3s;
+}
+
+.experience-card:hover{
+  transform:translateY(-5px);
+  background:rgba(255,255,255,.09);
+}
+
+.exp-icon{
+  font-size:34px;
+  margin-bottom:25px;
+}
+
+.experience-card h3{margin-bottom:8px}
+
+.experience-card p{
+  color:#94a3b8;
+  font-size:13px;
+}
+
+/* ---------- OFFERS ---------- */
+
+.offers{
+  background:var(--cream);
+}
+
+.offer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+.offer-card{
+  min-height:350px;
+  border-radius:19px;
+  overflow:hidden;
+  padding:35px;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  background-position:center;
+  background-size:cover;
+  position:relative;
+}
+
+.offer-card:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg,rgba(0,0,0,.78),rgba(0,0,0,.05));
+}
+
+.offer-content{
+  position:relative;
+  z-index:2;
+}
+
+.discount{
+  display:inline-block;
+  background:var(--red);
+  padding:7px 13px;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.offer-card h3{
+  font-family:"Playfair Display",serif;
+  font-size:34px;
+  margin-bottom:7px;
+}
+
+.offer-card p{color:#e2e8f0}
+
+/* ---------- GALLERY ---------- */
+
+.gallery{
+  background:#fff;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  grid-template-rows:260px 260px;
+  gap:13px;
+}
+
+.gallery-grid img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:13px;
+  transition:.35s;
+}
+
+.gallery-grid img:hover{
+  transform:scale(1.015);
+}
+
+.gallery-grid img:first-child{
+  grid-row:span 2;
+}
+
+/* ---------- REVIEWS ---------- */
+
+.reviews{
+  background:#f7fafb;
+}
+
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.review{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  padding:28px;
+  border-radius:15px;
+}
+
+.review-stars{
+  color:#e5a82e;
+  margin-bottom:16px;
+}
+
+.review p{
+  color:#475569;
+  line-height:1.8;
+  margin-bottom:22px;
+}
+
+.reviewer{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.avatar{
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#dff7ef;
+  font-weight:bold;
+  color:var(--green);
+}
+
+/* ---------- LOCATION ---------- */
+
+.location{
+  background:var(--cream);
+}
+
+.location-grid{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:25px;
+}
+
+.contact-card{
+  background:#fff;
+  border-radius:18px;
+  padding:35px;
+}
+
+.contact-item{
+  display:flex;
+  gap:14px;
+  margin-bottom:25px;
+}
+
+.contact-icon{
+  min-width:45px;
+  height:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#dcfce7;
+  border-radius:50%;
+}
+
+.contact-item small{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+
+.contact-item strong{
+  display:block;
+  margin-top:3px;
+}
+
+.map{
+  min-height:450px;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 55px rgba(15,23,42,.1);
+}
+
+.map iframe{
+  width:100%;
+  height:100%;
+  min-height:450px;
+  border:0;
+}
+
+/* ---------- POLICIES ---------- */
+
+.policies{background:#fff}
+
+.policy-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.policy{
+  padding:25px;
+  border-radius:14px;
+  background:#f8fafc;
+}
+
+.policy h3{
+  font-size:16px;
+  margin-bottom:8px;
+}
+
+.policy p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+  background:#07121b;
+  color:#fff;
+  padding:65px 6% 25px;
+}
+
+.footer-grid{
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1.4fr;
+  gap:45px;
+  padding-bottom:40px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.footer-logo{
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  margin-bottom:13px;
+}
+
+footer p,footer a{
+  color:#8da0ae;
+  font-size:13px;
+}
+
+footer a{
+  display:block;
+  margin:8px 0;
+}
+
+footer h4{margin-bottom:15px}
+
+.copyright{
+  max-width:1250px;
+  margin:auto;
+  padding-top:22px;
+  color:#64748b;
+  font-size:12px;
+}
+
+/* ---------- WHATSAPP ---------- */
+
+.whatsapp{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:61px;
+  height:61px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:29px;
+  z-index:100;
+  box-shadow:0 12px 35px rgba(0,0,0,.25);
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{box-shadow:0 12px 35px rgba(0,0,0,.25)}
+  50%{box-shadow:0 12px 35px rgba(37,211,102,.5)}
+}
+
+/* ---------- MODAL ---------- */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.68);
+  z-index:200;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.modal.active{display:flex}
+
+.modal-box{
+  width:min(520px,100%);
+  background:#fff;
+  border-radius:20px;
+  padding:32px;
+  position:relative;
+  animation:pop .25s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(.94);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.close{
+  position:absolute;
+  right:16px;
+  top:16px;
+  border:0;
+  background:#f1f5f9;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  font-size:21px;
+}
+
+.modal-box h2{
+  font-family:"Playfair Display",serif;
+  font-size:33px;
+}
+
+.modal-box>p{
+  color:var(--muted);
+  margin-bottom:22px;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:11px;
+  margin-bottom:11px;
+}
+
+.form-control{
+  width:100%;
+  border:1px solid #dbe3ea;
+  border-radius:9px;
+  padding:13px;
+  outline:0;
+  margin-bottom:11px;
+}
+
+.form-control:focus{
+  border-color:var(--green);
+}
+
+.full{width:100%}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:1000px){
+
+  .nav-menu{display:none}
+
+  .booking{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .intro-grid,
+  .location-grid{
+    grid-template-columns:1fr;
+  }
+
+  .room-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .experience-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .policy-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:650px){
+
+  section{padding:75px 5%}
+
+  .hero{
+    min-height:720px;
+    padding:125px 5% 110px;
+  }
+
+  .hero h1{
+    font-size:53px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .booking-wrap{
+    margin:-45px 5% 0;
+  }
+
+  .booking{
+    grid-template-columns:1fr;
+    padding:16px;
+  }
+
+  .intro{
+    padding-top:75px;
+  }
+
+  .image-stack{
+    padding-right:25px;
+    padding-bottom:30px;
+  }
+
+  .main-img{height:390px}
+
+  .small-img{
+    width:150px;
+    height:155px;
+    border-width:7px;
+  }
+
+  .intro-copy h2{
+    font-size:40px;
+  }
+
+  .intro-list{
+    grid-template-columns:1fr;
+  }
+
+  .room-grid,
+  .experience-grid,
+  .offer-grid,
+  .review-grid,
+  .policy-grid,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:190px 190px 190px;
+  }
+
+  .gallery-grid img:first-child{
+    grid-column:span 2;
+    grid-row:span 1;
+  }
+
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+  .whatsapp{
+    width:56px;
+    height:56px;
+    right:16px;
+    bottom:16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="nav">
+
+  <a class="logo" href="#">
+    Azure <span>Haven</span>
+  </a>
+
+  <nav class="nav-menu">
+    <a href="#rooms">Rooms</a>
+    <a href="#experience">Experience</a>
+    <a href="#offers">Offers</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#location">Location</a>
+    <a href="#policies">Policies</a>
+    <a href="#booking" class="nav-cta">Book Now</a>
+  </nav>
+
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      ★ Luxury Hotel & Resort
+    </div>
+
+    <h1>
+      Your stay,<br>
+      <span>beautifully</span> designed.
+    </h1>
+
+    <p>
+      Escape into a world of calm, comfort and unforgettable hospitality.
+      Discover beautifully designed rooms, exceptional dining and
+      everything you need for a perfect stay.
+    </p>
+
+    <div class="hero-actions">
+
+      <button class="btn btn-orange" onclick="openBooking()">
+        Book Your Stay →
+      </button>
+
+      <a class="btn btn-white" href="#rooms">
+        Explore Rooms
+      </a>
+
+    </div>
+
+    <div class="hero-rating">
+      <span class="stars">★★★★★</span>
+      <span>4.9/5 · Loved by 2,000+ guests</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BOOKING -->
+<div class="booking-wrap" id="booking">
+
+  <div class="booking">
+
+    <div class="book-field">
+      <label>Check-in</label>
+      <input type="date" id="checkin">
+    </div>
+
+    <div class="book-field">
+      <label>Check-out</label>
+      <input type="date" id="checkout">
+    </div>
+
+    <div class="book-field">
+      <label>Guests</label>
+      <select id="guests">
+        <option>1 Guest</option>
+        <option selected>2 Guests</option>
+        <option>3 Guests</option>
+        <option>4 Guests</option>
+        <option>5+ Guests</option>
+      </select>
+    </div>
+
+    <div class="book-field">
+      <label>Rooms</label>
+      <select id="rooms">
+        <option selected>1 Room</option>
+        <option>2 Rooms</option>
+        <option>3 Rooms</option>
+        <option>4 Rooms</option>
+      </select>
+    </div>
+
+    <button class="btn btn-orange" onclick="checkAvailability()">
+      Check Rates
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- INTRO -->
+<section class="intro">
+
+<div class="container intro-grid">
+
+  <div class="image-stack">
+
+    <img
+      class="main-img"
+      src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=90"
+      alt="Luxury hotel room">
+
+    <img
+      class="small-img"
+      src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=600&q=90"
+      alt="Hotel interior">
+
+  </div>
+
+
+  <div class="intro-copy">
+
+    <div class="eyebrow">
+      The Azure Haven Experience
+    </div>
+
+    <h2>
+      A quiet escape in the heart of the city.
+    </h2>
+
+    <p>
+      Azure Haven blends contemporary luxury with warm hospitality.
+      Every detail is designed to make your stay comfortable, peaceful
+      and memorable.
+    </p>
+
+    <div class="intro-list">
+
+      <div class="intro-item">
+        <b>✦ Prime Location</b>
+        <span>Easy access to major attractions</span>
+      </div>
+
+      <div class="intro-item">
+        <b>🛡 24/7 Security</b>
+        <span>Comfort and safety around the clock</span>
+      </div>
+
+      <div class="intro-item">
+        <b>🍽 Fine Dining</b>
+        <span>Fresh local & international cuisine</span>
+      </div>
+
+      <div class="intro-item">
+        <b>♨ Wellness</b>
+        <span>Spa, pool and relaxing experiences</span>
+      </div>
+
+    </div>
+
+    <button class="btn btn-orange" onclick="openBooking()">
+      Reserve Your Room
+    </button>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- ROOMS -->
+<section class="rooms" id="rooms">
+
+<div class="container">
+
+  <div class="section-top">
+    <div class="eyebrow">Rooms & Suites</div>
+
+    <h2>
+      Stay somewhere special.
+    </h2>
+
+    <p>
+      Thoughtfully designed rooms with premium bedding,
+      beautiful interiors and everything you need.
+    </p>
+  </div>
+
+
+  <div class="room-grid">
+
+    <!-- ROOM 1 -->
+
+    <article class="room-card">
+
+      <div class="room-photo">
+
+        <img
+          src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1100&q=90"
+          alt="Deluxe room">
+
+        <span class="room-label">MOST POPULAR</span>
+
+      </div>
+
+      <div class="room-body">
+
+        <h3>Deluxe Room</h3>
+
+        <div class="room-meta">
+          King Bed · 2 Guests · 350 sq ft
+        </div>
+
+        <p>
+          Elegant room featuring premium bedding, smart TV,
+          high-speed Wi-Fi and a luxury bathroom.
+        </p>
+
+        <div class="room-bottom">
+
+          <div class="price">
+            <strong>₹4,999</strong>
+            <small>/ night</small>
+          </div>
+
+          <button
+            class="btn btn-orange"
+            onclick="selectRoom('Deluxe Room')">
+            Book
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- ROOM 2 -->
+
+    <article class="room-card">
+
+      <div class="room-photo">
+
+        <img
+          src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1100&q=90"
+          alt="Premium suite">
+
+      </div>
+
+      <div class="room-body">
+
+        <h3>Premium Suite</h3>
+
+        <div class="room-meta">
+          King Bed · 3 Guests · 520 sq ft
+        </div>
+
+        <p>
+          Spacious suite with separate living space,
+          premium bathroom and stunning city views.
+        </p>
+
+        <div class="room-bottom">
+
+          <div class="price">
+            <strong>₹7,999</strong>
+            <small>/ night</small>
+          </div>
+
+          <button
+            class="btn btn-orange"
+            onclick="selectRoom('Premium Suite')">
+            Book
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- ROOM 3 -->
+
+    <article class="room-card">
+
+      <div class="room-photo">
+
+        <img
+          src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1100&q=90"
+          alt="Family suite">
+
+      </div>
+
+      <div class="room-body">
+
+        <h3>Family Suite</h3>
+
+        <div class="room-meta">
+          2 Beds · 4 Guests · 700 sq ft
+        </div>
+
+        <p>
+          Spacious accommodation for families with comfortable
+          sleeping areas and premium amenities.
+        </p>
+
+        <div class="room-bottom">
+
+          <div class="price">
+            <strong>₹9,499</strong>
+            <small>/ night</small>
+          </div>
+
+          <button
+            class="btn btn-orange"
+            onclick="selectRoom('Family Suite')">
+            Book
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+
+<div class="container">
+
+  <div class="section-top">
+
+    <div class="eyebrow">Hotel Experience</div>
+
+    <h2>
+      Everything you need.
+    </h2>
+
+    <p>
+      From relaxing mornings to memorable evenings,
+      enjoy our complete collection of hotel experiences.
+    </p>
+
+  </div>
+
+
+  <div class="experience-grid">
+
+    <div class="experience-card">
+      <div class="exp-icon">🏊</div>
+      <h3>Infinity Pool</h3>
+      <p>
+        Take a refreshing break beside our beautiful pool.
+      </p>
+    </div>
+
+    <div class="experience-card">
+      <div class="exp-icon">🧖</div>
+      <h3>Wellness Spa</h3>
+      <p>
+        Relax with peaceful spa and wellness treatments.
+      </p>
+    </div>
+
+    <div class="experience-card">
+      <div class="exp-icon">🍽️</div>
+      <h3>Fine Dining</h3>
+      <p>
+        Discover local and international flavours prepared by expert chefs.
+      </p>
+    </div>
+
+    <div class="experience-card">
+      <div class="exp-icon">🏋️</div>
+      <h3>Fitness Studio</h3>
+      <p>
+        Modern equipment available for your daily workout.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- OFFERS -->
+<section class="offers" id="offers">
+
+<div class="container">
+
+  <div class="section-top">
+
+    <div class="eyebrow">Exclusive Offers</div>
+
+    <h2>
+      A little more luxury.
+    </h2>
+
+    <p>
+      Enjoy special direct-booking offers for your next getaway.
+    </p>
+
+  </div>
+
+
+  <div class="offer-grid">
+
+    <div
+      class="offer-card"
+      style="background-image:url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1300&q=90')">
+
+      <div class="offer-content">
+
+        <span class="discount">20% OFF</span>
+
+        <h3>Weekend Escape</h3>
+
+        <p>
+          Relax, recharge and enjoy complimentary breakfast.
+        </p>
+
+        <br>
+
+        <button
+          class="btn btn-orange"
+          onclick="openBooking()">
+          Book Offer →
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="offer-card"
+      style="background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1300&q=90')">
+
+      <div class="offer-content">
+
+        <span class="discount">15% OFF</span>
+
+        <h3>Family Holiday</h3>
+
+        <p>
+          More space, more comfort and special family benefits.
+        </p>
+
+        <br>
+
+        <button
+          class="btn btn-orange"
+          onclick="openBooking()">
+          Book Offer →
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+
+<div class="container">
+
+  <div class="section-top">
+
+    <div class="eyebrow">Gallery</div>
+
+    <h2>
+      See the experience.
+    </h2>
+
+    <p>
+      Explore our rooms, interiors, dining spaces and amenities.
+    </p>
+
+  </div>
+
+
+  <div class="gallery-grid">
+
+    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1300&q=90">
+
+    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=90">
+
+    <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=90">
+
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=90">
+
+    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=90">
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- REVIEWS -->
+<section class="reviews">
+
+<div class="container">
+
+  <div class="section-top">
+
+    <div class="eyebrow">Guest Reviews</div>
+
+    <h2>
+      Loved by our guests.
+    </h2>
+
+  </div>
+
+
+  <div class="review-grid">
+
+    <div class="review">
+
+      <div class="review-stars">★★★★★</div>
+
+      <p>
+        “Beautiful rooms, excellent service and a very peaceful
+        atmosphere. Everything felt premium from check-in to checkout.”
+      </p>
+
+      <div class="reviewer">
+        <div class="avatar">R</div>
+        <div>
+          <b>Rahul Mehta</b><br>
+          <small>Ahmedabad</small>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="review">
+
+      <div class="review-stars">★★★★★</div>
+
+      <p>
+        “The family suite was spacious and extremely comfortable.
+        The staff were friendly and helpful throughout our stay.”
+      </p>
+
+      <div class="reviewer">
+        <div class="avatar">P</div>
+        <div>
+          <b>Priya Shah</b><br>
+          <small>Mumbai</small>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="review">
+
+      <div class="review-stars">★★★★★</div>
+
+      <p>
+        “Great location, amazing breakfast and a beautiful pool.
+        Definitely a place I would visit again.”
+      </p>
+
+      <div class="reviewer">
+        <div class="avatar">A</div>
+        <div>
+          <b>Arjun Patel</b><br>
+          <small>Vadodara</small>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- LOCATION -->
+<section class="location" id="location">
+
+<div class="container">
+
+  <div class="section-top">
+
+    <div class="eyebrow">Contact & Location</div>
+
+    <h2>
+      Come stay with us.
+    </h2>
+
+    <p>
+      Find us easily and reach our team whenever you need assistance.
+    </p>
+
+  </div>
+
+
+  <div class="location-grid">
+
+    <div class="contact-card">
+
+      <div class="contact-item">
+
+        <div class="contact-icon">📍</div>
+
+        <div>
+          <small>Hotel Address</small>
+          <strong>
+            123 Grand Avenue,<br>
+            Ahmedabad, Gujarat, India
+          </strong>
+        </div>
+
+      </div>
+
+
+      <div class="contact-item">
+
+        <div class="contact-icon">📞</div>
+
+        <div>
+          <small>Phone</small>
+          <strong>+91 98765 43210</strong>
+        </div>
+
+      </div>
+
+
+      <div class="contact-item">
+
+        <div class="contact-icon">✉️</div>
+
+        <div>
+          <small>Email</small>
+          <strong>reservations@azurehaven.com</strong>
+        </div>
+
+      </div>
+
+
+      <div class="contact-item">
+
+        <div class="contact-icon">🕐</div>
+
+        <div>
+          <small>Reception</small>
+          <strong>Open 24 Hours</strong>
+        </div>
+
+      </div>
+
+
+      <a
+        class="btn btn-orange"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Ahmedabad,Gujarat,India">
+
+        Open Google Maps →
+
+      </a>
+
+    </div>
+
+
+    <div class="map">
+
+      <iframe
+        src="https://www.google.com/maps?q=Ahmedabad,Gujarat,India&output=embed"
+        loading="lazy">
+      </iframe>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- POLICIES -->
+<section class="policies" id="policies">
+
+<div class="container">
+
+  <div class="section-top">
+
+    <div class="eyebrow">Hotel Policies</div>
+
+    <h2>
+      Good to know.
+    </h2>
+
+  </div>
+
+
+  <div class="policy-grid">
+
+    <div class="policy">
+      <h3>🕐 Check-in</h3>
+      <p>
+        Check-in from 2:00 PM. Early check-in depends on availability.
+      </p>
+    </div>
+
+    <div class="policy">
+      <h3>🚪 Check-out</h3>
+      <p>
+        Check-out before 12:00 PM. Late checkout may have additional charges.
+      </p>
+    </div>
+
+    <div class="policy">
+      <h3>❌ Cancellation</h3>
+      <p>
+        Free cancellation up to 24 hours before check-in.
+      </p>
+    </div>
+
+    <div class="policy">
+      <h3>🐕 Pets</h3>
+      <p>
+        Pets are allowed in selected rooms. Please contact reception.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer-grid">
+
+  <div>
+
+    <div class="footer-logo">
+      Azure Haven
+    </div>
+
+    <p>
+      A modern luxury hotel designed around comfort,
+      calm, safety and exceptional hospitality.
+    </p>
+
+  </div>
+
+
+  <div>
+
+    <h4>Explore</h4>
+
+    <a href="#rooms">Rooms</a>
+    <a href="#experience">Experience</a>
+    <a href="#offers">Offers</a>
+    <a href="#gallery">Gallery</a>
+
+  </div>
+
+
+  <div>
+
+    <h4>Hotel</h4>
+
+    <a href="#location">Location</a>
+    <a href="#policies">Policies</a>
+    <a href="#booking">Booking</a>
+
+  </div>
+
+
+  <div>
+
+    <h4>Contact</h4>
+
+    <p>📞 +91 98765 43210</p>
+    <p>✉️ reservations@azurehaven.com</p>
+    <p>📍 Ahmedabad, Gujarat</p>
+
+  </div>
+
+</div>
+
+
+<div class="copyright">
+  © 2026 Azure Haven Hotel. All rights reserved.
+</div>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+<a
+  class="whatsapp"
+  target="_blank"
+  aria-label="WhatsApp Support"
+  href="https://wa.me/919876543210?text=Hello%20Azure%20Haven,%20I%20want%20to%20know%20about%20room%20availability.">
+
+  💬
+
+</a>
+
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookingModal">
+
+<div class="modal-box">
+
+  <button class="close" onclick="closeBooking()">×</button>
+
+  <h2>Book Your Stay</h2>
+
+  <p>
+    Enter your details and continue through WhatsApp.
+  </p>
+
+
+  <div class="form-row">
+
+    <input
+      class="form-control"
+      type="date"
+      id="modalCheckin">
+
+    <input
+      class="form-control"
+      type="date"
+      id="modalCheckout">
+
+  </div>
+
+
+  <select
+    class="form-control"
+    id="modalRoom">
+
+    <option>Deluxe Room</option>
+    <option>Premium Suite</option>
+    <option>Family Suite</option>
+
+  </select>
+
+
+  <input
+    class="form-control"
+    id="guestName"
+    placeholder="Full Name">
+
+
+  <input
+    class="form-control"
+    id="guestPhone"
+    placeholder="Phone Number">
+
+
+  <button
+    class="btn btn-orange full"
+    onclick="sendBooking()">
+
+    Continue on WhatsApp →
+
+  </button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ---------- DATE SETUP ---------- */
+
+const today =
+new Date().toISOString().split("T")[0];
+
+document.getElementById("checkin").min=today;
+document.getElementById("checkout").min=today;
+document.getElementById("modalCheckin").min=today;
+document.getElementById("modalCheckout").min=today;
+
+
+/* ---------- BOOKING ---------- */
+
+function openBooking(){
+
+  document
+  .getElementById("bookingModal")
+  .classList.add("active");
+
+}
+
+
+function closeBooking(){
+
+  document
+  .getElementById("bookingModal")
+  .classList.remove("active");
+
+}
+
+
+/* ---------- CHECK AVAILABILITY ---------- */
+
+function checkAvailability(){
+
+  const checkin =
+  document.getElementById("checkin").value;
+
+  const checkout =
+  document.getElementById("checkout").value;
+
+  if(!checkin || !checkout){
+
+    alert("Please select your check-in and check-out dates.");
+
+    return;
+
+  }
+
+  if(new Date(checkout)<=new Date(checkin)){
+
+    alert("Check-out must be after check-in.");
+
+    return;
+
+  }
+
+  document.getElementById("modalCheckin").value=checkin;
+
+  document.getElementById("modalCheckout").value=checkout;
+
+  openBooking();
+
+}
+
+
+/* ---------- ROOM SELECTION ---------- */
+
+function selectRoom(room){
+
+  openBooking();
+
+  document.getElementById("modalRoom").value=room;
+
+}
+
+
+/* ---------- WHATSAPP BOOKING ---------- */
+
+function sendBooking(){
+
+  const name =
+  document.getElementById("guestName").value.trim();
+
+  const phone =
+  document.getElementById("guestPhone").value.trim();
+
+  const room =
+  document.getElementById("modalRoom").value;
+
+  const checkin =
+  document.getElementById("modalCheckin").value;
+
+  const checkout =
+  document.getElementById("modalCheckout").value;
+
+
+  if(!name || !phone || !checkin || !checkout){
+
+    alert("Please fill all booking details.");
+
+    return;
+
+  }
+
+
+  if(new Date(checkout)<=new Date(checkin)){
+
+    alert("Please select a valid checkout date.");
+
+    return;
+
+  }
+
+
+  const message =
+`Hello Azure Haven Hotel!
+
+I would like to request a booking.
+
+Name: ${name}
+Phone: ${phone}
+Room: ${room}
+Check-in: ${checkin}
+Check-out: ${checkout}`;
+
+  const url =
+  "https://wa.me/919876543210?text="+
+  encodeURIComponent(message);
+
+  window.open(url,"_blank");
+
+}
+
+
+/* ---------- MODAL OUTSIDE CLICK ---------- */
+
+document
+.getElementById("bookingModal")
+.addEventListener("click",function(e){
+
+  if(e.target===this){
+    closeBooking();
+  }
+
+});
+
+</script>
+
+</body>
+  </html>
